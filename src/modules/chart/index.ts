@@ -23,6 +23,8 @@ export default class extends Module {
 
   @bindThis
   private async post() {
+    if (config.chartEnabled === false) return; // chartEnabled が false の場合は何もしない
+
     const now = new Date();
     if (now.getHours() !== 23) return;
     const date = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
